@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Trevor | Web Developer Portfolio</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+      :root {
+        --dark-grey-black: #0e1207;
+        --accent: #f4fe7c;
+        --accent-transition: #8dbe99;
+        --accent-end: #4592ae;
+        --gradient-linear: linear-gradient(
+          90deg,
+          #f4fe7c 20%,
+          #4592ae 100%
+        );
+        --gradient-radial: radial-gradient(#f4fe7c 20%, #4592ae 100%);
+        --white: #f8ffe8;
+      }
+      fp * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        background: var(--dark-grey-black);
+        color: var(--white);
+        text-align: center;
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-family: 'DM Sans', sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      /** ----------------------------------------------------------------------------
+             * typography
+             --------------------------------------------------------------------------------*/
+
+      header {
+        color: var(--white);
+        padding: 50px 20px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      header .indent {
+        text-indent: 15px;
+        display: block;
+        top: 10px;
+      }
+
+      header h2 {
+        position: relative;
+        left: -5px;
+        margin-bottom: 15px;
+        font-size: 5.5rem;
+        padding-bottom: 5px;
+        line-height: 66px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-top: 15px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        font-weight: 200;
+        font-size: 1.125rem;
+        line-height: 150%;
+        color: #ccd2bf;
+        text-align: justify;
+        hyphens: auto;
+      }
+
+      /** ----------------------------------------------------------------------------
+             * structure
+             --------------------------------------------------------------------------------*/
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: left;
+        z-index: 1;
+        background-color: var(--dark-grey-black);
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 2px solid rgba(7, 9, 1, 1);
+
+        box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .section {
+        margin: 30px;
+        margin-bottom: 30px;
+      }
+
+      footer {
+        margin-top: 30px;
+        font-size: 1rem;
+        color: #bbb;
+      }
+
+      /** ----------------------------------------------------------------------------
+             * mode
+             --------------------------------------------------------------------------------*/
+
+      .gradient {
+        background-image: linear-gradient(
+          270deg,
+          var(--accent-end),
+          var(--accent-transition) 0%,
+          var(--accent)
+        );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        display: inline;
+      }
+
+      .brand-gradient {
+        background: var(--gradient-linear);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .flex {
+        display: flex;
+      }
+      *:focus {
+        outline-color: var(--accent);
+      }
+      /** ----------------------------------------------------------------------------
+             * Logo
+             --------------------------------------------------------------------------------*/
+
+      .logoPath {
+        animation: draw 4s forwards, fadeIn 0.75s 2.4s forwards;
+        stroke-dasharray: 19000;
+        stroke-dashoffset: 19000;
+        fill-opacity: 0;
+        fill: url(#gradient);
+      }
+
+      @keyframes draw {
+        from {
+          stroke-dasharray: 19000;
+          /* Circumference of the circle */
+        }
+
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          fill-opacity: 0;
+          stroke-opacity: 1;
+        }
+
+        to {
+          fill-opacity: 1;
+          stroke-opacity: 0;
+        }
+      }
+
+      /** ----------------------------------------------------------------------------
+             * list
+             --------------------------------------------------------------------------------*/
+
+      ul.skills-list li {
+        font-size: 0.75em;
+        font-weight: 100;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      /** ----------------------------------------------------------------------------
+             * Selection styling
+             --------------------------------------------------------------------------------*/
+
+      ::-moz-selection {
+        /* Code for Firefox */
+        color: black;
+        background: var(--accent);
+      }
+
+      ::selection {
+        color: black;
+        background: var(--accent);
+      }
+
+      .social {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .social li {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .social li + li {
+        border-left: 1px solid var(--white);
+        border-radius: 0;
+        margin-left: 10px;
+      }
+
+      .social li svg {
+        margin-right: 5px;
+      }
+
+      .social li a {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 0.3em;
+        transition: all 0.1s ease-in-out;
+        padding: 0 10px;
+      }
+
+      .social:hover li a {
+        opacity: 0.6;
+      }
+
+      .social li:hover a {
+        color: var(--accent);
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      /** ----------------------------------------------------------------------------
+             * Header Image
+             --------------------------------------------------------------------------------*/
+      .bg {
+        position: fixed;
+        /* The image used */
+        background-image: url('./bg.jpg');
+        top: 0;
+        left: 0;
+        /* Full height */
+        height: 100%;
+        width: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+      }
+
+      .section {
+        position: relative;
+        top: 10px;
+        opacity: 0;
+        /* transform: scale(0.9); */
+        transition: all 0.4s ease-in-out;
+      }
+
+      .section.animate {
+        top: 0px;
+        opacity: 1;
+        /* transform: scale(1); */
+      }
+
+      h3 span {
+        font-weight: 300;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div
+        class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none flex justify-center items-center filter blur-[100px] opacity-50"
+      >
+        <div
+          class="bg-yellow-500 w-[350px] h-[250px] rounded-full absolute"
+          style="transform: scale(1.0206)"
+        ></div>
+        <div
+          class="bg-orange-500 w-[360px] h-[260px] rounded-full absolute"
+          style="transform: scale(1.0103)"
+        ></div>
+        <div
+          class="bg-green-500 w-[370px] h-[270px] rounded-full absolute"
+          style="transform: scale(1.03091)"
+        ></div>
+        <div
+          class="bg-purple-500 w-[380px] h-[280px] rounded-full absolute"
+          style="transform: scale(1.04121)"
+        ></div>
+        <div
+          class="bg-blue-500 w-[390px] h-[290px] rounded-full absolute"
+          style="transform: scale(1.05151)"
+        ></div>
+        <div
+          class="bg-pink-500 w-[400px] h-[300px] rounded-full absolute"
+          style="transform: scale(1.03091)"
+        ></div>
+      </div>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.0"
+        width="150pt"
+        height="193pt"
+        viewBox="0 0 300 387"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <defs>
+          <linearGradient
+            id="gradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#f4fe7c" />
+            <stop offset="85%" stop-color="#8dbe99" />
+            <stop offset="100%" stop-color="#4592ae" />
+          </linearGradient>
+        </defs>
+        <g transform="translate(0,387) scale(0.1,-0.1)">
+          <path
+            path=""
+            class="logoPath"
+            fill="#url(#gradient)"
+            stroke="#8dbe99"
+            stroke-miterlimit="10"
+            stroke-width="18"
+            d="M 2360 3622.11 C 2352 3619.11 1898 3446.11 1352 3238.11 C 806 3029.11 356 2859.11 352 2859.11 C 327 2859.11 251 2797.11 236 2765.11 C 210 2710.11 144 1948.11 163 1910.11 C 185 1863.11 229 1870.11 470 1958.11 C 588 2001.11 690 2034.11 697 2032.11 C 703 2029.11 711 2021.11 714 2014.11 C 717 2006.11 703 1826.11 684 1613.11 C 648 1228.11 648 1226.11 668 1200.11 C 678 1186.11 699 1173.11 713 1171.11 C 728 1169.11 913 1235.11 1168 1333.11 C 1405 1424.11 1603 1499.11 1609 1499.11 C 1624 1499.11 1623 1454.11 1608 1442.11 C 1595 1432.11 937 1185.11 845 1155.11 C 757 1127.11 677 1076.11 658 1038.11 C 637 995.112 595 423.112 610 383.112 C 621 355.112 658 338.112 691 346.112 C 728 355.112 1049 478.112 1090 499.112 C 1135 522.112 1174 559.112 1194 596.112 C 1204 616.112 1214 692.112 1225 829.112 C 1233 940.112 1245 1039.11 1250 1049.11 C 1255 1059.11 1272 1071.11 1287 1077.11 C 1551 1172.11 2114 1386.11 2150 1404.11 C 2197 1428.11 2256 1495.11 2265 1534.11 C 2268 1545.11 2283 1700.11 2299 1879.11 C 2333 2256.11 2331 2268.11 2255 2269.11 C 2238 2269.11 2032 2195.11 1796 2104.11 C 1560 2012.11 1358 1939.11 1346 1941.11 C 1317 1945.11 1316 1974.11 1339 2224.11 C 1355 2402.11 1356 2439.11 1344 2467.11 C 1322 2522.11 1291 2515.11 899 2364.11 C 706 2290.11 542 2229.11 534 2229.11 C 512 2229.11 518 2267.11 542 2283.11 C 555 2291.11 606 2313.11 655 2332.11 C 1490 2652.11 2297 2966.11 2339 2987.11 C 2426 3030.11 2430 3041.11 2454 3329.11 C 2473 3564.11 2473 3577.11 2457 3603.11 C 2440 3629.11 2400 3637.11 2360 3622.11 Z M 2423 3565.11 C 2432 3542.11 2403 3175.11 2390 3148.11 C 2384 3134.11 2366 3115.11 2352 3107.11 C 2337 3098.11 2003 2967.11 1610 2816.11 C 596 2426.11 536 2402.11 511 2375.11 C 487 2349.11 461 2226.11 474 2194.11 C 486 2162.11 553 2182.11 916 2323.11 C 1108 2398.11 1274 2459.11 1283 2459.11 C 1292 2459.11 1302 2449.11 1305 2436.11 C 1309 2423.11 1302 2311.11 1291 2186.11 C 1278 2038.11 1274 1950.11 1280 1934.11 C 1290 1909.11 1318 1889.11 1345 1889.11 C 1354 1889.11 1560 1966.11 1802 2059.11 C 2044 2153.11 2248 2229.11 2256 2229.11 C 2263 2229.11 2272 2218.11 2276 2205.11 C 2279 2192.11 2270 2047.11 2255 1883.11 C 2228 1578.11 2223 1552.11 2181 1529.11 C 2170 1524.11 1973 1449.11 1743 1364.11 C 1513 1278.11 1305 1198.11 1280 1186.11 C 1206 1148.11 1199 1127.11 1179 881.112 C 1163 681.112 1160 664.112 1138 643.112 C 1114 619.112 793 489.112 759 489.112 C 748 489.112 737 496.112 733 506.112 C 725 527.112 758 981.112 771 1032.11 C 783 1079.11 810 1096.11 949 1144.11 C 1245 1246.11 1686 1421.11 1707 1444.11 C 1723 1462.11 1730 1487.11 1735 1544.11 C 1744 1631.11 1733 1654.11 1689 1645.11 C 1665 1641.11 1388 1535.11 951 1364.11 C 871 1334.11 801 1311.11 793 1313.11 C 774 1321.11 776 1371.11 810 1734.11 C 844 2101.11 845 2128.11 826 2154.11 C 802 2187.11 748 2176.11 527 2094.11 C 412 2052.11 311 2019.11 302 2021.11 C 290 2023.11 284 2036.11 282 2061.11 C 278 2110.11 338 2743.11 350 2774.11 C 355 2787.11 369 2805.11 382 2813.11 C 400 2824.11 2312 3560.11 2380 3581.11 C 2400 3587.11 2417 3581.11 2423 3565.11 Z"
+          ></path>
+        </g>
+      </svg>
+      <div class="section">
+        <h2 class="brand-gradient">
+          <span>Trevor</span>
+          <span class="indent">Phippard</span>
+        </h2>
+        <h3>Front-End <span>|</span> Fullstack Developer</h3>
+        <ul class="flex social">
+          <li class="mail">
+            <a href="mailto:trevorphippard@gmail.com">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.587 1.413T20 20zm8-7l8-5V6l-8 5l-8-5v2z"
+                ></path>
+              </svg>
+
+              mail</a
+            >
+          </li>
+          <li class="github">
+            <a href="https://github.com/trevorphippard">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill="currentColor"
+                  d="M13.18 11.309c-.718 0-1.3.807-1.3 1.799c0 .994.582 1.801 1.3 1.801s1.3-.807 1.3-1.801c-.001-.992-.582-1.799-1.3-1.799m4.526-4.683c.149-.365.155-2.439-.635-4.426c0 0-1.811.199-4.551 2.08c-.575-.16-1.548-.238-2.519-.238c-.973 0-1.945.078-2.52.238C4.74 2.399 2.929 2.2 2.929 2.2c-.789 1.987-.781 4.061-.634 4.426C1.367 7.634.8 8.845.8 10.497c0 7.186 5.963 7.301 7.467 7.301l1.734.002l1.732-.002c1.506 0 7.467-.115 7.467-7.301c0-1.652-.566-2.863-1.494-3.871m-7.678 10.289h-.056c-3.771 0-6.709-.449-6.709-4.115c0-.879.31-1.693 1.047-2.369C5.537 9.304 7.615 9.9 9.972 9.9h.056c2.357 0 4.436-.596 5.664.531c.735.676 1.045 1.49 1.045 2.369c0 3.666-2.937 4.115-6.709 4.115m-3.207-5.606c-.718 0-1.3.807-1.3 1.799c0 .994.582 1.801 1.3 1.801s1.301-.807 1.301-1.801c0-.992-.582-1.799-1.301-1.799"
+                ></path>
+              </svg>
+
+              github</a
+            >
+          </li>
+          <li class="linkedin">
+            <a href="https://ca.linkedin.com/in/trevorphippard">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="1em"
+                height="1em"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5 3c0 1.062-.71 1.976-2.001 1.976C1.784 4.976 1 4.114 1 3.052C1 1.962 1.76 1 3 1s1.976.91 2 2M1 19V6h4v13zm6-8.556c0-1.545-.051-2.836-.102-3.951h3.594l.178 1.723h.076c.506-.811 1.746-2 3.822-2C17.1 6.216 19 7.911 19 11.558V19h-4v-6.861c0-1.594-.607-2.81-2-2.81c-1.062 0-1.594.86-1.873 1.569c-.102.254-.127.608-.127.963V19H7z"
+                ></path>
+              </svg>
+              linkedin</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="container">
+      <section class="section cover-letter">
+        <h2 class="brand-gradient">About Me</h2>
+        <p>
+          With a background in front-end and full-stack development, I
+          bring a passion for crafting interactive, accessible, and
+          scalable web applications. My experience spans across
+          various industries, focusing on delivering seamless user
+          experiences. I thrive in agile environments and love
+          mentoring fellow developers. Let’s build something amazing
+          together.
+        </p>
+      </section>
+    </div>
+    <footer></footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('.section');
+
+        sections.forEach((section, i) => {
+          setTimeout(() => {
+            section.classList.add('animate');
+          }, 500 * (i + 1));
+        });
+      });
+    </script>
+  </body>
+</html>
