@@ -11,7 +11,7 @@
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
       :root {
-        --dark-grey-black: #171716;
+        --dark-grey-black: #20201f;
         --accent: #f4fe7c;
         --accent-transition: #8dbe99;
         --accent-end: #4592ae;
@@ -124,17 +124,25 @@
 
       /** ----------------------------------------------------------------------------
              * video
-             --------------------------------------------------------------------------------*/
-
-    header {
+      --------------------------------------------------------------------------------*/
+    video {
       position: relative;
       top: -25px;
       width: 100%;
+      height: 100%;
       overflow: hidden;
     }
 
-    header::before,
-    header::after{
+    .vidCont{
+    position: absolute;
+    height: 50vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    }
+
+    .vidCont::before,
+    .vidCont::after{
       content: '';
       position: absolute;
       bottom: 0;
@@ -145,18 +153,18 @@
 
     }
 
-    header::after {
+    .vidCont::after {
       left: 0;
       border-left: 0px solid transparent;
       border-right: 50cqw solid transparent;
-      border-bottom: 15rem solid var(--dark-grey-black);
+      border-bottom: 50cqh solid var(--dark-grey-black);
     }
 
-    header::before{
+    .vidCont::before{
       right: 0;
       border-left: 50cqw solid transparent;
       border-right: 0px solid transparent;
-      border-bottom: 15rem solid var(--dark-grey-black);
+      border-bottom: 50cqh solid var(--dark-grey-black);
     }
 
     video {
@@ -368,14 +376,14 @@
         position: relative;
         top: 10px;
         opacity: 0;
-        /* transform: scale(0.9); */
+        transform: scale(0.97);
         transition: all 0.4s ease-in-out;
       }
 
       .section.animate {
         top: 0px;
         opacity: 1;
-        /* transform: scale(1); */
+        transform: scale(1);
       }
 
       h3 span {
@@ -388,10 +396,12 @@
 
 
     <header>
+      <div class="vidCont">
       <video autoplay muted loop playsinline>
         <source src="https://cdn.pixabay.com/video/2017/11/02/12716-241674181_large.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+      </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.0"
