@@ -30,51 +30,66 @@
         -webkit-font-smoothing: antialiased;
       }
 
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+
       body {
         background: var(--dark-grey-black);
         color: var(--white);
-        text-align: center;
-        align-content: center;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
         font-family: 'DM Sans', sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
         font-size: 1.6rem;
         line-height: 1.6;
-        justify-content: center;
         min-height: 100vh;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%; /* or a fixed pixel value */
+        margin: 0 auto;
+        overflow: hidden;
       }
 
       /** ----------------------------------------------------------------------------
              * typography
              --------------------------------------------------------------------------------*/
 
-      header {
+      .logo_title-lockup {
+        padding-top:150px;
         top:-25px;
         color: var(--white);
-        padding: 50px 20px;
         font-size: 2.5rem;
         font-weight: bold;
         text-transform: uppercase;
+        text-align: center;
+        margin: 0px auto;
+        overflow: hidden;
+        width: 100%; /* or a fixed pixel value */
       }
 
-      header .indent {
+
+
+      .logo_title-lockup .indent {
         text-indent: 15px;
         display: block;
         top: 10px;
       }
 
-      header h2 {
+      .logo_title-lockup h2 {
         position: relative;
         left: -5px;
         margin-bottom: 15px;
         font-size: 2.25em;
-        padding-bottom: 5px;
         line-height: 66px;
       }
-
       h3 {
         font-size: 1.5rem;
         margin-top: 15px;
@@ -91,14 +106,27 @@
         hyphens: auto;
       }
 
+    @media screen and (max-width: 768px) {
+        .logo_title-lockup {
+            font-size: 2rem;
+        }
+        .logo_title-lockup h2 {
+          line-height: 54px;
+        }
+        h3 {
+          line-height: 21px;
+          padding-bottom: 20px;
+        }
+      }
       /** ----------------------------------------------------------------------------
              * structure
              --------------------------------------------------------------------------------*/
 
-      .container {
+      .coverletterCont {
         max-width: 800px;
+                width: 80%;
+        padding:20px 10px;
         margin: 20px auto;
-        padding: 30px;
         border-radius: 10px;
         text-align: left;
         z-index: 1;
@@ -109,10 +137,11 @@
         border: 2px solid red;
         border-image: linear-gradient(to right, var(--dark-grey-black), var(--accent-transition)) 1;
         box-sizing: border-box;
+
+
       }
 
       .section {
-        margin: 30px;
         margin-bottom: 30px;
       }
 
@@ -125,20 +154,14 @@
       /** ----------------------------------------------------------------------------
              * video
       --------------------------------------------------------------------------------*/
-    video {
-      position: relative;
-      top: -25px;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+
 
     .vidCont{
-    position: absolute;
-    height: 50vh;
-    width: 100vw;
-    left: 0;
-    top: 0;
+      position: absolute;
+      top:0;
+      display: block;
+      width: 100vw;
+      height: 50vh;
     }
 
     .vidCont::before,
@@ -149,8 +172,6 @@
       width: 0;
       height: 0;
       clear: both;
-
-
     }
 
     .vidCont::after {
@@ -175,26 +196,11 @@
       left: 50%;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Makes video cover the container while maintaining aspect ratio */
+      object-fit: cover;
       transform: translate(-50%, -50%);
       opacity: 0.5;
-      z-index: -1; /* Send behind overlay content */
-    }
-
-
-    .content {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.3); /* Optional: semi-transparent overlay for readability */
+      z-index: -1;
+      overflow: hidden;
     }
 
       video::-webkit-media-controls {
@@ -226,6 +232,7 @@
       }
 
       .brand-gradient {
+
         background: var(--gradient-linear);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -283,12 +290,9 @@
 
       ul {
         list-style: none;
-        padding: 0;
       }
 
       li {
-        margin: 5px 0;
-        padding: 10px;
         border-radius: 5px;
       }
 
@@ -348,7 +352,7 @@
       }
 
       /** ----------------------------------------------------------------------------
-             * Header Image
+             * header-lockup Image
              --------------------------------------------------------------------------------*/
       .bg {
         position: fixed;
@@ -394,14 +398,15 @@
 
   <body>
 
+    <div class="container">
+        <div class="vidCont">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.pixabay.com/video/2017/11/02/12716-241674181_large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-    <header>
-      <div class="vidCont">
-      <video autoplay muted loop playsinline>
-        <source src="https://cdn.pixabay.com/video/2017/11/02/12716-241674181_large.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      </div>
+    <div class="logo_title-lockup">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.0"
@@ -494,11 +499,10 @@
           </li>
         </ul>
       </div>
+    </div>
 
 
-
-    </header>
-    <div class="container">
+    <div class="coverletterCont">
       <section class="section cover-letter">
         <h2 class="brand-gradient">About Me</h2>
         <p>
@@ -512,7 +516,8 @@
         </p>
       </section>
     </div>
-    <footer></footer>
+      <footer></footer>
+</div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const sections = document.querySelectorAll('.section');
