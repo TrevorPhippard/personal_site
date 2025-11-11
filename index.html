@@ -10,389 +10,309 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-      :root {
-        --dark-grey-black: #20201f;
-        --accent: #f4fe7c;
-        --accent-transition: #8dbe99;
-        --accent-end: #4592ae;
-        --gradient-linear: linear-gradient(
-          90deg,
-          #f4fe7c 20%,
-          #4592ae 100%
-        );
-        --gradient-radial: radial-gradient(#f4fe7c 20%, #4592ae 100%);
-        --white: #f8ffe8;
-      }
-       * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-      }
-
-    html, body {
-      margin: 0;
-      padding: 0;
+ :root {
+     --dark-grey-black: #20201f;
+     --accent: #f4fe7c;
+     --accent-transition: #8dbe99;
+     --accent-end: #4592ae;
+     --gradient-linear: linear-gradient( 90deg, #f4fe7c 20%, #4592ae 100% );
+     --gradient-radial: radial-gradient(#f4fe7c 20%, #4592ae 100%);
+     --white: #f8ffe8;
+}
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     -webkit-font-smoothing: antialiased;
+}
+ html, body {
+     margin: 0;
+     padding: 0;
+}
+ body {
+     background: var(--dark-grey-black);
+     color: var(--white);
+     font-family: 'DM Sans', sans-serif;
+     font-optical-sizing: auto;
+     font-style: normal;
+     font-size: 1.6rem;
+     line-height: 1.6;
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+}
+ .container{
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+    /* or a fixed pixel value */
+     margin: 0 auto;
+     overflow: hidden;
+}
+/** ---------------------------------------------------------------------------- * typography --------------------------------------------------------------------------------*/
+ .logo_title-lockup {
+     padding-top:150px;
+     top:-25px;
+     color: var(--white);
+     font-size: 2.5rem;
+     font-weight: bold;
+     text-transform: uppercase;
+     text-align: center;
+     margin: 0px auto;
+     overflow: hidden;
+     width: 100%;
+    /* or a fixed pixel value */
+     z-index: 100;
+}
+ .logo_title-lockup .indent {
+     text-indent: 15px;
+     display: block;
+     top: 10px;
+}
+ .logo_title-lockup h2 {
+     position: relative;
+     left: -5px;
+     margin-bottom: 15px;
+     font-size: 2.25em;
+     line-height: 66px;
+}
+ h3 {
+     font-size: 1.5rem;
+     margin-top: 15px;
+}
+ p {
+     font-size: 1.1rem;
+     margin-bottom: 10px;
+     font-weight: 200;
+     font-size: 1.125rem;
+     line-height: 150%;
+     color: #ccd2bf;
+     text-align: justify;
+     hyphens: auto;
+}
+ @media screen and (max-width: 768px) {
+     .logo_title-lockup {
+         font-size: 2rem;
     }
-
-
-      body {
-        background: var(--dark-grey-black);
-        color: var(--white);
-        font-family: 'DM Sans', sans-serif;
-        font-optical-sizing: auto;
-        font-style: normal;
-        font-size: 1.6rem;
-        line-height: 1.6;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-      }
-
-      .container{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%; /* or a fixed pixel value */
-        margin: 0 auto;
-        overflow: hidden;
-      }
-
-      /** ----------------------------------------------------------------------------
-             * typography
-             --------------------------------------------------------------------------------*/
-
-      .logo_title-lockup {
-        padding-top:150px;
-        top:-25px;
-        color: var(--white);
-        font-size: 2.5rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-align: center;
-        margin: 0px auto;
-        overflow: hidden;
-        width: 100%; /* or a fixed pixel value */
-      }
-
-
-
-      .logo_title-lockup .indent {
-        text-indent: 15px;
-        display: block;
-        top: 10px;
-      }
-
-      .logo_title-lockup h2 {
-        position: relative;
-        left: -5px;
-        margin-bottom: 15px;
-        font-size: 2.25em;
-        line-height: 66px;
-      }
-      h3 {
-        font-size: 1.5rem;
-        margin-top: 15px;
-      }
-
-      p {
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-        font-weight: 200;
-        font-size: 1.125rem;
-        line-height: 150%;
-        color: #ccd2bf;
-        text-align: justify;
-        hyphens: auto;
-      }
-
-    @media screen and (max-width: 768px) {
-        .logo_title-lockup {
-            font-size: 2rem;
-        }
-        .logo_title-lockup h2 {
-          line-height: 54px;
-        }
-        h3 {
-          line-height: 21px;
-          padding-bottom: 20px;
-        }
-      }
-      /** ----------------------------------------------------------------------------
-             * structure
-             --------------------------------------------------------------------------------*/
-
-      .coverletterCont {
-        max-width: 800px;
-                width: 80%;
-        padding:20px 10px;
-        margin: 20px auto;
-        border-radius: 10px;
-        text-align: left;
-        z-index: 1;
-        background-color: var(--dark-grey-black);
-        border-top: 2px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 2px solid rgba(7, 9, 1, 1);
-        box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.2);
-        border: 2px solid red;
-        border-image: linear-gradient(to right, var(--dark-grey-black), var(--accent-transition)) 1;
-        box-sizing: border-box;
-
-
-      }
-
-      .section {
-        margin-bottom: 30px;
-      }
-
-      footer {
-        margin-top: 30px;
-        font-size: 1rem;
-        color: #bbb;
-      }
-
-      /** ----------------------------------------------------------------------------
-             * video
-      --------------------------------------------------------------------------------*/
-
-
-    .vidCont{
-      position: absolute;
-      top:0;
-      display: block;
-      width: 100vw;
-      height: 50vh;
+     .logo_title-lockup h2 {
+         line-height: 54px;
     }
-
-    .vidCont::before,
-    .vidCont::after{
-      content: '';
-      position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      clear: both;
+     h3 {
+         line-height: 21px;
+         padding-bottom: 20px;
     }
-
-    .vidCont::after {
-      left: 0;
-      border-left: 0px solid transparent;
-      border-right: 50cqw solid transparent;
-      border-bottom: 50cqh solid var(--dark-grey-black);
+}
+/** ---------------------------------------------------------------------------- * structure --------------------------------------------------------------------------------*/
+ .coverletterCont {
+     max-width: 800px;
+     width: 80%;
+     padding:20px 10px;
+     margin: 20px auto;
+     border-radius: 10px;
+     text-align: left;
+     z-index: 1;
+     background-color: var(--dark-grey-black);
+     border-top: 2px solid rgba(255, 255, 255, 0.1);
+     border-bottom: 2px solid rgba(7, 9, 1, 1);
+     box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.2);
+     border: 2px solid red;
+     border-image: linear-gradient(to right, var(--dark-grey-black), var(--accent-transition)) 1;
+     box-sizing: border-box;
+}
+ .section {
+     margin-bottom: 30px;
+}
+ footer {
+     margin-top: 30px;
+     font-size: 1rem;
+     color: #bbb;
+}
+/** ---------------------------------------------------------------------------- * video --------------------------------------------------------------------------------*/
+ .vidCont{
+     position: absolute;
+     top:0;
+     display: block;
+     width: 100vw;
+     height: 50vh;
+}
+ .vidCont::before, .vidCont::after{
+     content: '';
+     position: absolute;
+     bottom: 0;
+     width: 0;
+     height: 0;
+     clear: both;
+     z-index: 0;
+}
+ .vidCont::after {
+     left: 0;
+     border-left: 0px solid transparent;
+     border-right: 50cqw solid transparent;
+     border-bottom: 50cqh solid var(--dark-grey-black);
+}
+ .vidCont::before{
+     right: 0;
+     border-left: 50cqw solid transparent;
+     border-right: 0px solid transparent;
+     border-bottom: 50cqh solid var(--dark-grey-black);
+}
+ video {
+     position: absolute;
+     margin:0px;
+     padding:0px;
+     top: 50%;
+     left: 50%;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transform: translate(-50%, -50%);
+     opacity: 0.5;
+     z-index: -1;
+     overflow: hidden;
+}
+ video::-webkit-media-controls {
+     display: none !important;
+}
+ video[autoplay] {
+     -webkit-playsinline: true;
+     playsinline: true;
+     muted: true;
+     autoplay: true;
+     loop: true;
+}
+/** ---------------------------------------------------------------------------- * mode --------------------------------------------------------------------------------*/
+ .gradient {
+     background-image: linear-gradient( 270deg, var(--accent-end), var(--accent-transition) 0%, var(--accent) );
+     -webkit-text-fill-color: transparent;
+     -webkit-background-clip: text;
+     background-clip: text;
+     display: inline;
+}
+ .brand-gradient {
+     background: var(--gradient-linear);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+ .flex {
+     display: flex;
+}
+ *:focus {
+     outline-color: var(--accent);
+}
+/** ---------------------------------------------------------------------------- * Logo --------------------------------------------------------------------------------*/
+ .logoPath {
+     animation: draw 4s forwards, fadeIn 0.75s 2.4s forwards;
+     stroke-dasharray: 19000;
+     stroke-dashoffset: 19000;
+     fill-opacity: 0;
+     fill: url(#gradient);
+}
+ @keyframes draw {
+     from {
+         stroke-dasharray: 19000;
+        /* Circumference of the circle */
     }
-
-    .vidCont::before{
-      right: 0;
-      border-left: 50cqw solid transparent;
-      border-right: 0px solid transparent;
-      border-bottom: 50cqh solid var(--dark-grey-black);
+     to {
+         stroke-dashoffset: 0;
     }
-
-    video {
-      position: absolute;
-      margin:0px;
-      padding:0px;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: translate(-50%, -50%);
-      opacity: 0.5;
-      z-index: -1;
-      overflow: hidden;
+}
+ @keyframes fadeIn {
+     from {
+         fill-opacity: 0;
+         stroke-opacity: 1;
     }
+     to {
+         fill-opacity: 1;
+         stroke-opacity: 0;
+    }
+}
+/** ---------------------------------------------------------------------------- * list --------------------------------------------------------------------------------*/
+ ul.skills-list li {
+     font-size: 0.75em;
+     font-weight: 100;
+}
+ ul {
+     list-style: none;
+}
+ li {
+     border-radius: 5px;
+}
+/** ---------------------------------------------------------------------------- * Selection styling --------------------------------------------------------------------------------*/
+ ::-moz-selection {
+    /* Code for Firefox */
+     color: black;
+     background: var(--accent);
+}
+ ::selection {
+     color: black;
+     background: var(--accent);
+}
+ .social {
+     justify-content: center;
+     align-items: center;
+}
+ .social li {
+     list-style: none;
+     padding: 0;
+     display: flex;
+     align-items: center;
+}
+ .social li + li {
+     border-left: 1px solid var(--white);
+     border-radius: 0;
+     margin-left: 10px;
+}
+ .social li svg {
+     margin-right: 5px;
+}
+ .social li a {
+     color: var(--white);
+     text-decoration: none;
+     font-size: 0.3em;
+     transition: all 0.1s ease-in-out;
+     padding: 0 10px;
+}
+ .social:hover li a {
+     opacity: 0.6;
+}
+ .social li:hover a {
+     color: var(--accent);
+     transform: scale(1.1);
+     opacity: 1;
+}
+/** ---------------------------------------------------------------------------- * header-lockup Image --------------------------------------------------------------------------------*/
+ .bg {
+     position: fixed;
+    /* The image used */
+     background-image: url('./bg.jpg');
+     top: 0;
+     left: 0;
+    /* Full height */
+     height: 100%;
+     width: 100%;
+    /* Center and scale the image nicely */
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     mask-image: linear-gradient( to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100% );
+}
+ .section {
+     position: relative;
+     top: 10px;
+     opacity: 0;
+     transform: scale(0.97);
+     transition: all 0.4s ease-in-out;
+}
+ .section.animate {
+     top: 0px;
+     opacity: 1;
+     transform: scale(1);
+}
+ h3 span {
+     font-weight: 300;
+}
 
-      video::-webkit-media-controls {
-        display: none !important;
-      }
-
-      video[autoplay] {
-        -webkit-playsinline: true;
-        playsinline: true;
-        muted: true;
-        autoplay: true;
-        loop: true;
-      }
-      /** ----------------------------------------------------------------------------
-             * mode
-             --------------------------------------------------------------------------------*/
-
-      .gradient {
-        background-image: linear-gradient(
-          270deg,
-          var(--accent-end),
-          var(--accent-transition) 0%,
-          var(--accent)
-        );
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-        display: inline;
-      }
-
-      .brand-gradient {
-
-        background: var(--gradient-linear);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .flex {
-        display: flex;
-      }
-      *:focus {
-        outline-color: var(--accent);
-      }
-      /** ----------------------------------------------------------------------------
-             * Logo
-             --------------------------------------------------------------------------------*/
-
-      .logoPath {
-        animation: draw 4s forwards, fadeIn 0.75s 2.4s forwards;
-        stroke-dasharray: 19000;
-        stroke-dashoffset: 19000;
-        fill-opacity: 0;
-        fill: url(#gradient);
-      }
-
-      @keyframes draw {
-        from {
-          stroke-dasharray: 19000;
-          /* Circumference of the circle */
-        }
-
-        to {
-          stroke-dashoffset: 0;
-        }
-      }
-
-      @keyframes fadeIn {
-        from {
-          fill-opacity: 0;
-          stroke-opacity: 1;
-        }
-
-        to {
-          fill-opacity: 1;
-          stroke-opacity: 0;
-        }
-      }
-
-      /** ----------------------------------------------------------------------------
-             * list
-             --------------------------------------------------------------------------------*/
-
-      ul.skills-list li {
-        font-size: 0.75em;
-        font-weight: 100;
-      }
-
-      ul {
-        list-style: none;
-      }
-
-      li {
-        border-radius: 5px;
-      }
-
-      /** ----------------------------------------------------------------------------
-             * Selection styling
-             --------------------------------------------------------------------------------*/
-
-      ::-moz-selection {
-        /* Code for Firefox */
-        color: black;
-        background: var(--accent);
-      }
-
-      ::selection {
-        color: black;
-        background: var(--accent);
-      }
-
-      .social {
-        justify-content: center;
-        align-items: center;
-      }
-
-      .social li {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        align-items: center;
-      }
-
-      .social li + li {
-        border-left: 1px solid var(--white);
-        border-radius: 0;
-        margin-left: 10px;
-      }
-
-      .social li svg {
-        margin-right: 5px;
-      }
-
-      .social li a {
-        color: var(--white);
-        text-decoration: none;
-        font-size: 0.3em;
-        transition: all 0.1s ease-in-out;
-        padding: 0 10px;
-      }
-
-      .social:hover li a {
-        opacity: 0.6;
-      }
-
-      .social li:hover a {
-        color: var(--accent);
-        transform: scale(1.1);
-        opacity: 1;
-      }
-
-      /** ----------------------------------------------------------------------------
-             * header-lockup Image
-             --------------------------------------------------------------------------------*/
-      .bg {
-        position: fixed;
-        /* The image used */
-        background-image: url('./bg.jpg');
-        top: 0;
-        left: 0;
-        /* Full height */
-        height: 100%;
-        width: 100%;
-
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        mask-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        );
-      }
-
-      .section {
-        position: relative;
-        top: 10px;
-        opacity: 0;
-        transform: scale(0.97);
-        transition: all 0.4s ease-in-out;
-      }
-
-      .section.animate {
-        top: 0px;
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      h3 span {
-        font-weight: 300;
-      }
     </style>
   </head>
 
